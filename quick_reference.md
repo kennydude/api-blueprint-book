@@ -44,10 +44,86 @@ at the moment
             "results": [
                 {
                     "message": "Minor issues to notifications",
-                    "severity": "minor"
+                    "severity": "minor",
+                    "id": 2
                 }
             ]
         }
 
+## Individual Status [GET /api/status/{id}/]
 
++ Parameters
+
+<!-- URL Parameters are defined here
+     For POST parameters, please see further down
+-->
+
+    - id: `2` (integer, required) - ID number of the status message
+
++ Response 200 (application/json)
+
+        {
+            "message": "Minor issues to notifications",
+            "severity": "minor",
+            "id": 2
+        }
+
+# Group Dogs
+
+Endpoints for dealing with our catalogue of dogs.
+
+## Breeds [/breeds/]
+
+### GET
+
+Get all breeds in our database
+
++ Response 200 (application/json)
+
+<!-- For the documentation on Dog Breed type, jump down
+     to the bottom of the document for "Data Structures".
+     
+     This format is called MSON (Markdown Syntax for Object Notation) 
+     https://github.com/apiaryio/mson
+-->
+
+    + Attributes
+    
+        + previous: `http://.../` (string, required, nullable) - The previous set of results
+        + next: `http://.../` (string, required, nullable) - The next set of results
+        + count: `992` (integer, required) - Total number of records
+        + results (array[Dog Breed]) - Results
+
+### POST
+
+Add a new breed to the database
+
++ Request Valid new breed (application/json)
+
+    + Attributes (Dog Breed)
+
++ Response 201 (application/json)
+
+    + Attributes (Dog Breed)
+
++ Request Not valid request (application/json)
+
+    + Attributes (Dog Bread)
+        + long_haired: `sometimes` (string)
+
++ Response 401 (application/json)
+
+    + Attributes
+    
+        + message: `long_haired not valid` (string, required) - Message in English of error
+        + code: `20292` (integer, required) - Error code
+
+# Data Structures
+
+## Dog Breed (object)
+
++ name: `English Springer Spaniel` (string, required) - The name of the breed
++ long_haired: `true` (boolean, required) - Is the dog long haired?
++ country: `England` (string, required) - Country of Origin of the breed
++ id: `1` (integer) - ID in the database for this breed
 ```

@@ -31,13 +31,13 @@ headings such as Authentication etc.
 This endpoint returns any issues with the service
 at the moment
 
-+ Response 200 (application/json)
-
 <!-- dredd can actually understand this block when you're
      testing APIs. It checks for the types are rougly
      the same. It's best to use the other ways of
      describing JSON responses
 -->
+
++ Response 200 (application/json)
 
         {
             "status": "ok",
@@ -52,11 +52,11 @@ at the moment
 
 ## Individual Status [GET /api/status/{id}/]
 
-+ Parameters
-
 <!-- URL Parameters are defined here
      For POST parameters, please see further down
 -->
+
++ Parameters
 
     - id: `2` (integer, required) - ID number of the status message
 
@@ -78,8 +78,6 @@ Endpoints for dealing with our catalogue of dogs.
 
 Get all breeds in our database
 
-+ Response 200 (application/json)
-
 <!-- For the documentation on Dog Breed type, jump down
      to the bottom of the document for "Data Structures".
      
@@ -87,11 +85,13 @@ Get all breeds in our database
      https://github.com/apiaryio/mson
 -->
 
++ Response 200 (application/json)
+
     + Attributes
     
         + previous: `http://.../` (string, required, nullable) - The previous set of results
         + next: `http://.../` (string, required, nullable) - The next set of results
-        + count: `992` (integer, required) - Total number of records
+        + count: `992` (number, required) - Total number of records
         + results (array[Dog Breed]) - Results
 
 ### POST
@@ -108,7 +108,9 @@ Add a new breed to the database
 
 + Request Not valid request (application/json)
 
-    + Attributes (Dog Bread)
+    + Attributes
+        + name: `Springer` (string)
+        + country: `England` (string)
         + long_haired: `sometimes` (string)
 
 + Response 401 (application/json)
@@ -116,7 +118,7 @@ Add a new breed to the database
     + Attributes
     
         + message: `long_haired not valid` (string, required) - Message in English of error
-        + code: `20292` (integer, required) - Error code
+        + code: `20292` (number, required) - Error code
 
 # Data Structures
 
@@ -125,5 +127,5 @@ Add a new breed to the database
 + name: `English Springer Spaniel` (string, required) - The name of the breed
 + long_haired: `true` (boolean, required) - Is the dog long haired?
 + country: `England` (string, required) - Country of Origin of the breed
-+ id: `1` (integer) - ID in the database for this breed
++ id: `1` (number) - ID in the database for this breed
 ```

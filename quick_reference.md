@@ -2,15 +2,17 @@
 
 This is a quick reference for API blueprint. It's not as technical as [the spec](https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md) but it should allow you to be able to produce an in-depth API Blueprint.
 
-Comments have been added using `<!-- html comment tags like this -->`
+Comments have been added using `<!-- html comment tags like this -->`.
+
+You can also view this on Apiary [here](http://docs.dogdatabase.apiary.io/#).
 
 ```markdown
 FORMAT: 1A
 HOST: https://api.example.com
 
-# My API
+# Dog Database
 
-My API is designed to be an example of how API blueprint works
+Dog Database is designed to be an example of how API blueprint works
 You should be able to use this to get an idea on how most of the concepts work
 inside of API Blueprint.
 
